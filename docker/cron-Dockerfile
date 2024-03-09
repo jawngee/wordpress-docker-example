@@ -1,0 +1,7 @@
+FROM alpine:3.17
+RUN set -x \
+    && apk add --no-cache supercronic shadow curl \
+    && useradd -m app
+USER app
+ADD ./cron/crontab.txt ./crontab
+
